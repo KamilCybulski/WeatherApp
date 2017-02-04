@@ -1,0 +1,35 @@
+/*=================================================
+                    Variables
+=================================================*/
+/*=================================================
+                Main section
+=================================================*/
+body {
+  background-color: #11151C;
+  font-size: 4vh;
+  color: #FFFFFF; }
+
+main {
+  margin: 20vh auto;
+  height: 50vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+/*=================================================
+                Location bar
+=================================================*/
+.location {
+  font-size: 6vh; }
+
+/*=================================================
+                Location bar
+=================================================*/
+.weather-bar {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  line-height: 8vh; }

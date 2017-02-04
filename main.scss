@@ -1,0 +1,44 @@
+/*=================================================
+                    Variables
+=================================================*/
+$bg-color: #11151C;
+$text-color: #FFFFFF;
+$accent-color: #18FFFF;
+
+$main-font: 'Raleway', sans-serif;
+
+/*=================================================
+                Main section
+=================================================*/
+body {
+    background-color: $bg-color;
+    font-size: 4vh;
+    color: $text-color;
+}
+main {
+    margin: 20vh auto;
+    height: 50vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*=================================================
+                Location bar
+=================================================*/
+.location {
+    font-size: 6vh;
+}
+
+/*=================================================
+                Location bar
+=================================================*/
+.weather-bar {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    line-height: 8vh;
+}
