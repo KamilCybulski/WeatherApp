@@ -8,6 +8,10 @@ function getPosition() {
     //function for succesfully loading geolocation data
     function geoSuccess(position) {
         console.log(position);
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+
+        console.log("Lat: " + lat + ", Lon: " + lon);
     }
 
     //function for errors while loading geoloaction data
