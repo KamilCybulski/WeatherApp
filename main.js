@@ -7,7 +7,6 @@ function getPosition() {
 
     //function for succesfully loading geolocation data
     function geoSuccess(position) {
-        console.log(position);
         var lat = position.coords.latitude;
         var lon = position.coords.longitude;
 
