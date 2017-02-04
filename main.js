@@ -30,7 +30,7 @@ function getWeather() {
     var key = "e984c7d121044a32a18221132170402";
     var url = 'http://api.apixu.com/v1/current.json?key=' + key + '&q=' + coords;
 
-    fetch(url)
+    var weatherData = fetch(url)
     .then(function(response){
         return response.json();
     })
@@ -46,10 +46,9 @@ function getWeather() {
             wind: data.current.wind_kph,
             pressure: data.current.pressure.mb;
         } 
-        console.log(weather);
-
-        
+        console.log("Weather: " + weather);
+        return weather
 
     })
-
+    return weatherData;
 }
