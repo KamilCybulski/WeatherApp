@@ -44,7 +44,7 @@ function getWeather() {
             tempF: data.current.temp_F,
             sky: data.current.condition.code,
             wind: data.current.wind_kph,
-            pressure: data.current.pressure.mb;
+            pressure: data.current.pressure.mb
         } 
         console.log("Weather: " + weather);
         return weather
