@@ -25,7 +25,7 @@ main {
   font-size: 6vh; }
 
 /*=================================================
-                Location bar
+                Weather bar
 =================================================*/
 .weather-bar {
   width: 100%;
@@ -33,3 +33,10 @@ main {
   flex-flow: row wrap;
   justify-content: space-around;
   line-height: 8vh; }
+
+.sky {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 6vh; }
