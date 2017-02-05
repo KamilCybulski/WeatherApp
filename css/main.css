@@ -22,7 +22,8 @@ main {
                 Location bar
 =================================================*/
 .location {
-  font-size: 6vh; }
+  font-size: 5vh;
+  text-align: center; }
 
 /*=================================================
                 Weather bar
@@ -39,4 +40,8 @@ main {
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
-  font-size: 6vh; }
+  font-size: 6vh;
+  color: #18FFFF; }
+
+.temp-unit {
+  color: #18FFFF; }

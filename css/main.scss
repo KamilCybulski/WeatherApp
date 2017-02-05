@@ -29,7 +29,8 @@ main {
                 Location bar
 =================================================*/
 .location {
-    font-size: 6vh;
+    font-size: 5vh;
+    text-align: center;
 }
 
 /*=================================================
@@ -48,4 +49,8 @@ main {
     justify-content: space-around;
     align-items: center;
     font-size: 6vh;
+    color: $accent-color;
+}
+.temp-unit {
+    color: $accent-color;
 }
