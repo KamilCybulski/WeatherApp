@@ -35,7 +35,7 @@ function getWeather() {
         return response.json();
     })
     .then(function(data){
-
+        console.log(data);
         //Variable for weather data
         var weather = {
             city: data.location.name,
@@ -52,3 +52,9 @@ function getWeather() {
     })
     return weatherData;
 }
+
+
+document.addEventListener('DOMContentLoaded', getWeather);
+
+document.addEventListener('DOMContentLoaded', function(){
+    console.log("Loaded")});
