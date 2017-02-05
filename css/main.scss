@@ -23,6 +23,10 @@ main {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 /*=================================================
@@ -53,4 +57,5 @@ main {
 }
 .temp-unit {
     color: $accent-color;
+    cursor: pointer;
 }

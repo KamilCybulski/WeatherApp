@@ -16,7 +16,11 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; }
 
 /*=================================================
                 Location bar
@@ -44,4 +48,5 @@ main {
   color: #18FFFF; }
 
 .temp-unit {
-  color: #18FFFF; }
+  color: #18FFFF;
+  cursor: pointer; }
