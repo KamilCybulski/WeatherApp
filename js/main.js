@@ -108,7 +108,8 @@ function showWeather(weatherData){
                 "Patchy light rain in area with thunder": "<i class='wi wi-storm-showers'></i>",
                 "Moderate or heavy rain in area with thunder": "<i class='wi wi-storm-showers'></i>",
                 "Patchy light snow in area with thunder": "<i class='wi wi-storm-showers'></i>",
-                "Moderate or heavy snow in area with thunder": "<i class='wi wi-storm-showers'></i>"
+                "Moderate or heavy snow in area with thunder": "<i class='wi wi-storm-showers'></i>",
+                "default": "<i class='wi wi-na'></i>"
             };
 
             skyField.innerHTML = icons[str] || icons["default"];
