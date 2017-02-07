@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
 
     var t = getPosition()
-    .then(getWeather, handleGeoReject)
-    .then(showWeather, handleAPIReject)
-    .then(addCFSwitch);
+    .then(getWeather, handleReject)
+    .then(showWeather, handleReject)
+    .then(addCFSwitch, handleReject);
 });
 
 
@@ -15,8 +15,11 @@ function getPosition(){
         navigator.geolocation.getCurrentPosition(
             function(position){
             var location = position.coords.latitude.toFixed(2) + "," + position.coords.longitude.toFixed(2);
-            location ? resolve(location) : reject("Cannot get geolocation data");
-        });
+            resolve(location);
+            },
+            function() {
+            reject("Cannot get geolocation data");
+            });
     });
 }
 
@@ -26,13 +29,20 @@ function getWeather(coordinates){
         //Some variables to create url
         var key = "e984c7d121044a32a18221132170402";
         var latLon = coordinates;
-        var url = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + latLon;
+        var url = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + "latLon";
 
-        var weatherData = fetch(url)
-                            .then(function(data){
-                                return data.json();
-                            });
-        weatherData ? resolve(weatherData) : reject("Cannot get weather data");
+         var weatherData = fetch(url)
+                .then(function(response){
+                    if (response.status >= 200 && response.status < 300){
+                        return Promise.resolve(response.json());
+                    }else {
+                        return Promise.reject("Cannot get weather data");
+                    }  
+                })
+                .then(
+                    function(data){
+                        resolve(data);
+                    });  
     });
 }
 
@@ -165,13 +175,9 @@ function addCFSwitch(weatherData){
 }
 
 //Functions for handling promises' rejections
-function handleGeoReject(){
+function handleReject(msg){
     var field = document.querySelector(".location");
-    field.innerHTML = "Sorry, you coordinates are unavailable."
-}
-
-function handleAPIReject(){
-    var field = document.querySelector(".location");
-    field.innerHTML = "Sorry, something went wrong while loading weather data."
+    console.log(field.innerHTML);
+    field.innerHTML = msg;
 }
 
