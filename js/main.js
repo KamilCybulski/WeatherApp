@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
 
     var t = getPosition()
-    .then(getWeather)
-    .then(showWeather)
+    .then(getWeather, handleGeoReject)
+    .then(showWeather, handleAPIReject)
     .then(addCFSwitch);
 });
 
@@ -164,4 +164,14 @@ function addCFSwitch(weatherData){
    });
 }
 
+//Functions for handling promises' rejections
+function handleGeoReject(){
+    var field = document.querySelector(".location");
+    field.innerHTML = "Sorry, you coordinates are unavailable."
+}
+
+function handleAPIReject(){
+    var field = document.querySelector(".location");
+    field.innerHTML = "Sorry, something went wrong while loading weather data."
+}
 
