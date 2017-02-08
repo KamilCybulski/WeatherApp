@@ -27,12 +27,18 @@ function getPosition(){
 }
 
 function getWeather(url){
-    return fetch(url);
+    return fetch(url)
+        .then(function(data){
+                return Promise.resolve(data);
+            },
+            function(){
+                return Promise.reject("Cannot connect to weather service");
+            });
 }
 
 //Function for processing fetch()'s response
 function processResponse(response){
-    if (response.ok ){
+    if (response && response.ok ){
         return response.json()
     }else {
         return Promise.reject("Cannot access weather service");
