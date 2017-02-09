@@ -17,7 +17,7 @@ function getPosition(){
             function(position){
             var location = position.coords.latitude.toFixed(2) + "," + position.coords.longitude.toFixed(2);
             var key = "e984c7d121044a32a18221132170402"
-            var url = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + "gwanabanakumkwat";
+            var url = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + location;
             resolve(url);
             },
             function() {
