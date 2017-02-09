@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-    getPosition()
-    .then(getWeather, handleReject)
-    .then(processResponse, handleReject)
-    .then(showWeather, handleReject)
-    .then(addCFSwitch, handleReject);
+    getPosition().catch(handleReject)
+    .then(getWeather).catch(handleReject)
+    .then(processResponse).catch(handleReject)
+    .then(showWeather).catch(handleReject)
+    .then(addCFSwitch);
 });
 
 
@@ -17,7 +17,7 @@ function getPosition(){
             function(position){
             var location = position.coords.latitude.toFixed(2) + "," + position.coords.longitude.toFixed(2);
             var key = "e984c7d121044a32a18221132170402"
-            var url = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + location;
+            var url = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + "gwanabanakumkwat";
             resolve(url);
             },
             function() {
@@ -32,7 +32,7 @@ function getWeather(url){
                 return Promise.resolve(data);
             },
             function(){
-                return Promise.reject("Cannot connect to weather service");
+                return Promise.reject("Cannot connect to the weather service");
             });
 }
 
@@ -41,7 +41,7 @@ function processResponse(response){
     if (response && response.ok ){
         return response.json()
     }else {
-        return Promise.reject("Cannot access weather service");
+        return Promise.reject("The weather service does not respond correctly");
     }
 }
 
@@ -50,9 +50,9 @@ function showWeather(weatherData){
 
     return new Promise(function(resolve, reject){
 
-        //Check if actually got a weather object
-        if (!weatherData){
-            return Promise.reject("Weather data invalid");
+        //Check if actually got weather data
+        if (!weatherData.current){
+             reject("Invalid response from a weather service")
         }
 
         //Some variables for DOM elements
@@ -182,8 +182,8 @@ function addCFSwitch(weatherData){
 //Functions for handling promises' rejections
 function handleReject(msg){
     var field = document.querySelector(".location");
-    field.innerHTML = "There is no weather. Only death, pain and suffering<br><br><i class='wi wi-earthquake'></i>";
-    console.log(msg);
+    field.innerHTML = msg;
+    return Promise.reject(msg);
     
 }
 
